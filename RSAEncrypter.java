@@ -13,7 +13,11 @@ public class RSAEncrypter {
 
         BigInteger e = findE(phi);
 
+        System.out.println("Chave pública (n,e) : (" + n + "," + e + ")");
+
         BigInteger d = findD(e, phi)[1];
+
+        System.out.println("Chave privada (n,d) : (" + n + "," + d + ")");
 
         String teste = "teste";
         BigInteger stringConverted = convertString(teste);
@@ -22,8 +26,8 @@ public class RSAEncrypter {
         BigInteger decryptedMessage = decrypt(encryptedMessage, d, n);
         String message = convertBigInteger(decryptedMessage);
 
-        System.out.println(encryptedMessage);
-        System.out.println(message);
+        System.out.println("Mensagem criptografada : " + encryptedMessage);
+        System.out.println("Mensagem descriptografada :" + message);
     }
 
     public static BigInteger convertString(String string){
